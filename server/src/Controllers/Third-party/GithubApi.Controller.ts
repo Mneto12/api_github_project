@@ -18,7 +18,7 @@ const getCommits = async ({ params }: Request, res: Response) => {
 };
 
 /**
-   * Método para obtene r un commit por su sha
+   * Método para obtener un commit por su sha
    * @param {sha} string
 */
 const getCommitsBySha = async ({ params }: Request, res: Response) => {

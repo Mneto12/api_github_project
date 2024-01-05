@@ -1,9 +1,9 @@
 import { Router } from "express";
-import controller from '../Controllers/Third-party/GithubApi.Controller'
+import controllerGithub from '../Controllers/Third-party/GithubApi.Controller'
 const router = Router();
 
-router.get("/:user/:repo/commits", controller.getCommits);
-router.get("/:user/:repo/commit/:commit_sha", controller.getCommitsBySha);
-router.get("/users/:user", controller.getRepositories);
+router.get("/github/:user/:repo/commits", controllerGithub.getCommits);
+router.get("/github/:user/:repo/commit/:commit_sha", controllerGithub.getCommitsBySha);
+router.get("/github/users/:user", controllerGithub.getRepositories);
 
 export { router };

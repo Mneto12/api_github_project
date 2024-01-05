@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { ApiUrl } from './Api/connection'
-import { FormControl, InputLabel, Select, MenuItem, TextField } from '@mui/material';
+import { FormControl, InputLabel, Select, MenuItem, TextField, Checkbox, CheckboxProps } from '@mui/material';
 
 function App() {
   const [commits, setCommits] = useState([]);
@@ -10,7 +10,7 @@ function App() {
 
   const handleUser = (event: any) => {
     const user = event.target.value;
-    fetch(`${ApiUrl}/users/${user}`)
+    fetch(`${ApiUrl}/github/users/${user}`)
       .then((res) => {
         return res.json();
       })
@@ -23,7 +23,7 @@ function App() {
 
   const handleRepos = (event: any) => {
     const repo = event.target.value;
-    fetch(`${ApiUrl}/${user}/${repo}/commits`)
+    fetch(`${ApiUrl}/github/${user}/${repo}/commits`)
       .then((res) => {
         return res.json();
       })
@@ -37,7 +37,7 @@ function App() {
 
   const handleSingleCommit = (event: any) => {
     const commit = event.target.value;
-    fetch(`${ApiUrl}/${user}/${RepoSingle}/commit/${commit}`)
+    fetch(`${ApiUrl}/github/${user}/${RepoSingle}/commit/${commit}`)
       .then((res) => {
         return res.json();
       })
@@ -46,6 +46,20 @@ function App() {
         setCommits(data);
       });
   
+  }
+
+  const handleCurrentRepo = (event: any) => {
+    if(!event.target.checked) {
+      setCommits([]);
+      return;
+    }
+    fetch(`${ApiUrl}/github/Mneto12/api_github_project/commits`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setCommits(data);
+      });
   }
 
   return (
@@ -82,6 +96,11 @@ function App() {
             label="Sha commit" 
             variant="outlined" 
             onChange={handleSingleCommit}
+          />
+
+          <span>Show current repo</span>
+          <Checkbox
+            onChange={handleCurrentRepo}
           />
         </div>
 
