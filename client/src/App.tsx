@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import Cards from './components/cards';
 import { ContextProvider } from './context/context';
-import FilterBar from './components/Filter/filterBar';
+import FilterBar from './components/Filter/FilterBar';
 
 function App() {
   const { commits } = useContext(ContextProvider)
