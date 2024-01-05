@@ -10,11 +10,13 @@ import service from "../../Services/GithubApiService";
 */
 const getCommits = async ({ params }: Request, res: Response) => {
     const { user, repo } = params;
-    const data = await service.getCommits(user, repo);
-
-    if (!data) return res.status(404).json({ message: "Commits not found" })
-
-    res.status(200).json(data);
+    try {
+        const data = await service.getCommits(user, repo);
+        if (!data) return res.status(404).json({ message: "Commits not found" })
+        return res.status(200).json(data);
+    } catch (e) {
+        return res.status(500).json({ message: "Internal server error" })
+    }
 };
 
 /**
@@ -23,11 +25,13 @@ const getCommits = async ({ params }: Request, res: Response) => {
 */
 const getCommitsBySha = async ({ params }: Request, res: Response) => {
     const { user, repo, commit_sha } = params;
-    const data = await service.getCommitBySha(user, repo, commit_sha);
-
-    if (!data) return res.status(404).json({ message: "Commit not found" })
-
-    res.status(200).json(data);
+    try {
+        const data = await service.getCommitBySha(user, repo, commit_sha);
+        if (!data) return res.status(404).json({ message: "Commit not found" })
+        return res.status(200).json(data);
+    } catch (e) {
+        return res.status(500).json({ message: "Internal server error" })
+    }
 }
 
 /**
@@ -36,11 +40,13 @@ const getCommitsBySha = async ({ params }: Request, res: Response) => {
 */
 const getRepositories = async ({ params }: Request, res: Response) => {
     const { user } = params;
-    const data = await service.getRepositories(user);
-
-    if (!data) return res.status(404).json({ message: "User not found" })
-
-    res.status(200).json(data);
+    try {
+        const data = await service.getRepositories(user);
+        if (!data) return res.status(404).json({ message: "User not found" })
+        return res.status(200).json(data);
+    } catch (e) {
+        return res.status(500).json({ message: "Internal server error" })
+    }
 }
 
 export default module.exports = { 

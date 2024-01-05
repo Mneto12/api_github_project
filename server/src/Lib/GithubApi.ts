@@ -1,3 +1,8 @@
+/**
+ * @author Miguel Coronel
+ * @date 01-03-2024
+ */
+
 import { configServices } from "../Config/services";
 import { Commit } from "../Interfaces/Commits";
 
