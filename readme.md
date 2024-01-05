@@ -10,7 +10,7 @@ The instructions to start the project is located in client and server README fil
 
 ```
 cd client
-cde server
+cd server
 ```
 
 In each one to run both sides.
