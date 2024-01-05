@@ -22,12 +22,12 @@ const CurrentRepoFilter = () => {
     }
 
   return (
-    <>
+    <div>
         <span>Show current repo</span>
           <Checkbox
             onChange={handleCurrentRepo}
         />
-    </>
+    </div>
   )
 }
 

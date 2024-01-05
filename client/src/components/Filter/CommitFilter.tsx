@@ -25,7 +25,7 @@ const CommitFilter = () => {
     <>
         <TextField 
             id="outlined-basic" 
-            label="Sha commit" 
+            label="ID" 
             variant="outlined" 
             onChange={handleSingleCommit}
         />
