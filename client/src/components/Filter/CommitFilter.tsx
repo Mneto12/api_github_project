@@ -25,7 +25,8 @@ const CommitFilter = () => {
     <>
         <TextField 
             id="outlined-basic" 
-            label="ID" 
+            label="ID"
+            disabled={repo.length === 0 ? true : false}
             variant="outlined" 
             onChange={handleSingleCommit}
         />

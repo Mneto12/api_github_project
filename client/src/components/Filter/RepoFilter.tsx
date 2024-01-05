@@ -18,7 +18,6 @@ const RepoFilter = () => {
           return res.json();
         })
         .then((data) => {
-          console.log(data)
           setRepo(repository);
           setCommits(data);
         });
